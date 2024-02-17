@@ -57,5 +57,5 @@ document.getElementById("newUserForm")?.addEventListener("submit", (e) => {
     let newSalary = document.getElementById("salaire");
 
     addUser(newName?.innerText as string,newAge?.innerText as string,newPoste?.innerText as string,newSalary?.innerText as string);
-    addToTable(UserList.findLast() as User);
+    addToTable(UserList[UserList.length-1] as User);
 })
