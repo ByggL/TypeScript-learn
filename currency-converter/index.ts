@@ -25,6 +25,7 @@ function submitted(e: any) {
 	}
 
 	// todo : conversion en currency
+	//        function to get target and origin currency into Currency type vars
 
 	resultField.innerText = ""; // result
 }
