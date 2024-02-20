@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
 		<script type="text/javascript" src="index.js"></script>
-		<title>Bin2Dec</title>
+		<title>Currency Converter</title>
 	</head>
 	<body>
 		<header>
@@ -16,22 +16,27 @@
 			<div class="main">
 				<form action="" id="mainForm">
 					<label>Amount of money</label>
-					<input type="text" name="binary" id="binary" />
+					<input type="text" name="input" id="input" />
 					<label>From:</label>
-					<select name="currency" id="currency">
-						<option value="euro">€</option>
-						<option value="dollar">$</option>
-						<option value="sterling">£</option>
-						<option value="etc">etc</option>
+					<select name="currencyIn" id="currencyIn">
+						<option value="Euro">€</option>
+						<option value="Dollar">$</option>
+						<option value="Pound Sterling">£</option>
+						<option value="Ruble">₽</option>
+						<option value="Rupee">₹</option>
+						<option value="Yuan">¥ (China)</option>
+						<option value="Yen">¥ (Japan)</option>
 					</select>
 					<label>To:</label>
-					<select name="currency" id="currency">
-						<option value="euro">€</option>
-						<option value="dollar">$</option>
-						<option value="sterling">£</option>
-						<option value="etc">etc</option>
+					<select name="currencyOut" id="currencyOut">
+						<option value="Euro">€</option>
+						<option value="Dollar">$</option>
+						<option value="Pound Sterling">£</option>
+						<option value="Ruble">₽</option>
+						<option value="Rupee">₹</option>
+						<option value="Yuan">¥ (China)</option>
+						<option value="Yen">¥ (Japan)</option>
 					</select>
-					<button type="submit">Convert</button>
 				</form>
 			</div>
 			<br />

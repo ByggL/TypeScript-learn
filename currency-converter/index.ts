@@ -9,28 +9,60 @@ var currencyList: Currency[] = [
 		name: "Euro",
 		symbol: "€",
 		value: 1,
-	}, // add other currencies
+	},
+	{
+		name: "Dollar",
+		symbol: "$",
+		value: 1.08,
+	},
+	{
+		name: "Pound Sterling",
+		symbol: "£",
+		value: 0.85,
+	},
+	{
+		name: "Ruble",
+		symbol: "₽",
+		value: 99.17,
+	},
+	{
+		name: "Rupee",
+		symbol: "₹",
+		value: 89.61,
+	},
+	{
+		name: "Yuan",
+		symbol: "¥",
+		value: 7.77,
+	},
+	{
+		name: "Yen",
+		symbol: "¥",
+		value: 162,
+	},
 ];
 
-function submitted(e: any) {
+function update(e: any) {  // any type is not recommended but it's the only way to not get errors
 	e.preventDefault();
 
-	let binaryField = document.getElementById("binary") as HTMLInputElement;
-	let currencyField = document.getElementById("currency") as HTMLInputElement;
+	// It's necessary to put every used DOM element inside a variable so the type can be fixed 
+	let inputField = document.getElementById("input") as HTMLInputElement;
 	let resultField = document.getElementById("result") as HTMLElement;
 
-	if (binaryField.value.match(/^[0-9]+$/g) === null) {
-		resultField.innerText = "Error : input is not a number";
-		return;
-	}
+	let currencyInField = document.getElementById("currencyIn") as HTMLInputElement;
+	let currencyOutField = document.getElementById("currencyOut") as HTMLInputElement;
 
-	// todo : conversion en currency
-	//        function to get target and origin currency into Currency type vars
+	let currencyIn = currencyList.find(i => i.name === currencyInField.value) as Currency;
+	let currencyOut = currencyList.find(i => i.name === currencyOutField.value) as Currency;
 
-	resultField.innerText = ""; // result
+	let result = parseInt(inputField.value)/currencyIn.value;   // first we convert the input to Euro
+	result *= currencyOut.value;								// then we convert from Euro to the final currency
+
+	resultField.innerText = result + " " + currencyOut.name + " (" + currencyOut.symbol + ")"; // result
 }
 
 window.onload = function () {
 	var form = document.getElementById("mainForm") as HTMLInputElement;
-	form.onsubmit = submitted.bind(form);
+	// form.onsubmit = submitted.bind(form);
+	form.onchange = update.bind(form);
 };
